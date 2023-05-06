@@ -1,6 +1,7 @@
+import 'package:flutter/material.dart';
+
 const appName="PettiKKada";
-
-
+Color primaryColor=const Color.fromARGB(255, 42, 112, 102);
 
 
 //test images
