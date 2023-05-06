@@ -1,3 +1,5 @@
+import 'package:banner_carousel/banner_carousel.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:pettikkada/core/constants.dart';
 
@@ -17,6 +19,7 @@ class ScreenHome extends StatelessWidget {
       "Toys",
       "Home"
     ];
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: primaryColor,
@@ -35,6 +38,7 @@ class ScreenHome extends StatelessWidget {
       body: Center(
           child: Column(
         children: [
+          //categories
           ValueListenableBuilder(
               valueListenable: selectedIndex,
               builder: (context, val, child) {
@@ -88,7 +92,37 @@ class ScreenHome extends StatelessWidget {
                     itemCount: categories.length,
                   ),
                 );
-              })
+              }),
+
+          //banner carousel
+          SizedBox(
+            width: double.infinity,
+            height: 180,
+            child: CarouselSlider.builder(
+              itemCount: 3,
+              itemBuilder:
+                  (BuildContext context, int index, int pageViewIndex) {
+                return InkWell(
+                  onTap: () async {},
+                  child: Container(
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        image: DecorationImage(
+                            image: NetworkImage(bannerImage.toString()),
+                            fit: BoxFit.cover)),
+                  ),
+                );
+              },
+              options: CarouselOptions(
+                autoPlay: true,
+                viewportFraction: 1.0,
+                autoPlayInterval: const Duration(seconds: 5),
+                enlargeCenterPage: false,
+                scrollDirection: Axis.horizontal,
+              ),
+            ),
+          ),
         ],
       )),
     );
