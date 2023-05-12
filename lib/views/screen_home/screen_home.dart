@@ -1,8 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:pettikkada/core/constants.dart';
-
 import '../../core/mediaquery.dart';
 import '../widgets/product_grid_widget.dart';
 
@@ -34,6 +32,10 @@ class ScreenHome extends StatelessWidget {
           IconButton(
             onPressed: () {},
             icon: const Icon(Icons.search),
+          ),
+          IconButton(
+            onPressed: () => Navigator.of(context).pushNamed("ScreenCart"),
+            icon: const Icon(Icons.shopping_cart),
           )
         ],
       ),
